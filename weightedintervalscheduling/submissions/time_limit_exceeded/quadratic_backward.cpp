@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include <vector>
+#include <tuple>
+#include <algorithm>
 using namespace std;
 #define rep(i,a,b) for (__typeof(a) i=(a); i<(b); ++i)
 #define iter(it,c) for (__typeof((c).begin()) it = (c).begin(); it != (c).end(); ++it)
