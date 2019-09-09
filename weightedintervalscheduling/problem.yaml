@@ -1,3 +1,8 @@
 source: Kattis
 license: cc by-sa
+author: Thore Husfeldt
+limits:
+        time: 1
+        memory: 1024
+                
 
