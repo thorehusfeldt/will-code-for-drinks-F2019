@@ -3,16 +3,6 @@
 #include <tuple>
 #include <algorithm>
 using namespace std;
-#define rep(i,a,b) for (__typeof(a) i=(a); i<(b); ++i)
-#define iter(it,c) for (__typeof((c).begin()) it = (c).begin(); it != (c).end(); ++it)
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-typedef long long ll;
-typedef unsigned long long ull;
-typedef vector<vi> vvi;
-typedef vector<vii> vvii;
-template <class T> T smod(T a, T b) { return (a % b + b) % b; }
 
 void readn(int &n) {
   int sign = 1;
@@ -34,7 +24,7 @@ int main() {
   int n;
   readn(n);
   vector<tuple<int,int,int> > v;
-  rep(i,0,n) {
+  for (int i = 0 ; i < n ; ++i) {
     int s, f, w;
     readn(s);
     readn(f);
@@ -44,8 +34,8 @@ int main() {
   v.push_back(make_tuple(-1,-1,0));
   ++n;
   sort(v.begin(), v.end());
-  vi best(n);
-  rep(i,1,n) {
+  vector<int> best(n);
+  for (int i = 0 ; i < n ; ++i) {
     int s = get<1>(v[i]);
     int lo = 0;
     int hi = i;
