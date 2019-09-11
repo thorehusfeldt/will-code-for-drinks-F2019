@@ -35,7 +35,8 @@ int main() {
   ++n;
   sort(v.begin(), v.end());
   vector<int> best(n);
-  for (int i = 0 ; i < n ; ++i) {
+  best[0] = 0;
+  for (int i = 1 ; i < n ; ++i) {
     int s = get<1>(v[i]);
     int lo = 0;
     int hi = i;
