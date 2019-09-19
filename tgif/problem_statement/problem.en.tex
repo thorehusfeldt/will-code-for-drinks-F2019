@@ -1,0 +1,34 @@
+\problemname{Thank God it’s Friday}
+
+\illustration{.3}{Yardley_Wood.jpg}{A wall calendar displaying the date 5 OCT. Image source: Yardley Wood Bus Garage - Open Day - signs - date - Oct 05.  Author:	Elliott Brown from Birmingham, United Kingdom. Wikimedia Commons.}
+
+Friday is the highlight of Børge and Åse’s life.
+They can meet up with their buddies in the ITU Friday bar and discuss anything they want: the weather, sports, favourite editors, politics, religion, and gossip about celebrities.
+Life can be good.
+
+Unfortunately, they don’t know which day of the week it is!
+They’ve woken up in a strange apartment, phones missing, and with little memory of the recent past.
+Which day is it? Which \emph{year} is it even?
+
+After some searching, they establish today’s date, because the calendar on the wall displays it.
+Also, Åse has found the remains of an old newspaper from 1 January in her handbag, which has that weekday printed on the front page.
+
+Help Børge and Åse figure out if today is Friday.
+
+\section*{Input}
+
+On the first line, today’s date.
+The date consists of two parts, separated by space.
+The first part is in an integer (the day of the month) $d$, with $1\leq d\leq 31$.
+The second part is the name of the month, abbreviated as \texttt{JAN}, \texttt{FEB}, \texttt{MAR}, \texttt{APR},
+\texttt{MAY}, \texttt{JUN}, \texttt{JUL}, \texttt{AUG}, \texttt{SEP}, \texttt{OCT}, \texttt{NOV}, or \texttt{DEC}.
+
+On the second line, the name of the day on 1 January of the current year, abbreviated as \texttt{MON}, \texttt{TUE}, \texttt{WED}, \texttt{THU}, \texttt{FRI}, \texttt{SAT}, \texttt{SUN}.
+
+
+\section*{Output}
+
+Output a single line:
+The four letters \texttt{TGIF}, abbreviating ``Thank God it's Friday'' if today is certainly Friday.
+The two words \texttt{not sure} if today might be Friday, depening on if this year has a 29th of February.
+The emoticon \texttt{:(} if today is certainly not Friday.

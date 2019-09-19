@@ -1,36 +1,32 @@
 import java.util.*;
 import java.io.*;
-public class intervalscheduling
+public class intervalschedulinghacky
 {
-    static class Interval 
-    {
-	int s, f;
-	Interval(int s, int f) 
-	{
-	    this.s = s;
-	    this.f = f;
-	}
-    }
-
     public static void main(String[] args) throws IOException
     {
 	BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
 	int n = Integer.parseInt(R.readLine().trim());
-	Interval[] intervals = new Interval[n];
+	long[] intervals = new long[n];
 
 	String[] tokens;
 	for (int i = 0; i < n; ++i){
 	    tokens = R.readLine().split(" ");
-	    intervals[i] = new Interval(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]));
+	    long val = Integer.parseInt(tokens[0]);
+	    val |= Long.parseLong(tokens[1]) << 32;
+
+	    intervals[i] = val;
 	}
-	Arrays.sort(intervals, (i,j) -> i.f - j.f);
+	Arrays.sort(intervals);
 	int next_idle = 0;
 	int res = 0;
-	for (Interval I: intervals) 
-	    if (I.s >= next_idle) {
+	for (int i = 0; i < n; ++i) {
+	    int s = (int)( intervals[i] & 0xFFFFFFFF);
+	    int f = (int)( intervals[i] >> 32);
+	    if (s >= next_idle) {
 		++res;
-		next_idle = I.f;
+		next_idle = f;
 	    }
+	}
 	System.out.println(res);
 
     }

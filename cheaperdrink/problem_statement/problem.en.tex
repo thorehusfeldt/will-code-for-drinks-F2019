@@ -1,0 +1,33 @@
+\problemname{Cheaper Drink}
+
+%\illustration{.3}{Yardley_Wood.jpg}{A wall calendar displaying the date 5 OCT. Image source: Yardley Wood Bus Garage - Open Day - signs - date - Oct 05.  Author:	Elliott Brown from Birmingham, United Kingdom. Wikimedia Commons.}
+
+Instead of worrying about the current hyperinflation you decide to go down to the local bar and have a drink.
+
+The prices at the bar are displayed using magnetic signs with numbers printed on them, with each magnet showing one more more digits.
+For instance, the price of 1106 adjusted megacredits is displayed like this:
+
+\medskip
+\includegraphics[width = 2cm]{img/from.png}
+
+While the bartender is busy serving the next customer, you have just enough time to rearrange the price of your favourite beverage to make it as cheap as possible.
+But be quick about it!
+
+Invidual magnets can be moved around in any order, or turned upside-down.
+The numbers are shown in a script that makes it difficult for the bartender to distinguish 0, 1, and 8 from their upside-down counterpart.
+Moreover, 6 and 9 look the same when one is turned upside-down.
+The example price above could be turned into 116, almost ten times cheaper, by turning the first magnet:
+
+\medskip
+\includegraphics[width = 2cm]{img/to.png}
+
+You have to use all the magnets, otherwise the bartender will immediately suspect fould play.
+
+\section*{Input}
+
+On the first line, the number $n$ of magnets, with $1\leq n\leq 100\,000$.
+On the next $n$ lines, exactly one integer $p_i$ describing the number printed on the $i$th magnet, where $p_i>0$ consists of no more than 100 digits (from $0$, $1$, $\ldots$, $9$), for $i\in\{1,\ldots, n\}$.
+
+\section*{Output}
+
+A single line containing one integer, which is the smallest number than can be written using the magnets containing $p_1,\ldots,p_n$ in any order, possibly turned upside-down.

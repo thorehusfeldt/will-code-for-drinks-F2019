@@ -1,0 +1,95 @@
+\problemname{Ask Marilyn}
+
+
+\illustration{.4}{img/Marilyn_vos_Savant_2017.jpg}{Marilyn vos Savant.
+Photo for \emph{Parade} magazine 2017.
+Author:  Ethan Hill. 
+Wikimedia Commons, licensed under cc-by-sa-2.0.}
+
+Marilyn is by far your favourite bartender, because she turns every purchase into a game.
+
+At the bar, there are three small boxes with doors.
+When you buy a drink, Marilyn places it in one of the boxes; you don't know which.
+Then the following ritual unfolds.
+You point to one of the three doors, say the 2nd.
+Marilyn will then smile deviously, and say “Interesting choice.”
+She then opens one of the three doors, possibly the one you just pointed to, showing its contents.
+You then get to change your original decision: maybe you now pick the door Marilyn just opened (in particular if you can see the drink there!), or you stick with your first choice, or you pick the remaining door.
+Whatever you finally choose is what you get.
+
+This entire ritual – you choose, Marilyn opens, you make your final decision -- is called a \emph{round}.
+It’s been a long week, so you’ll play $1000$ rounds.
+You need to get as many drinks as you can.
+
+\section*{Interaction}
+
+You program interacts with Marilyn using standard input and output.
+You start each round by printing your initial choice of door, as a single integer on a line
+\begin{quote}\emph{you}$\rangle$ \verb}2}\end{quote}
+(or \verb}1} or \verb}3} -- it's up to you!)
+Marilyn’s response will consist of two lines.
+The first line is Marilyn's dialogue:
+\begin{quote}\emph{marilyn}$\rangle$ \verb}Interesting choice. Let me open one door for you.}\end{quote}
+Now Marilyn will pick a door.
+You can make no assumptions about Marilyn's behaviour.
+She may pick the same door that you just chose, or she may be in a good mood and pick the door with a drink behind it, or she may pick a door with no drink behind it.
+She may choose randomly, or helpfully, or she may want to deliberately confuse you.
+Being a good bartender, Marilyn knows where the drink is, and she knows you well enough to know your strategy, both of which she may take into account or not.
+The second line is what you see after Marilyn opens that door.
+It will be either of
+\begin{itemize}
+  \item
+\emph{marilyn}$\rangle$ \verb}There is nothing behind door 3 .}
+\item
+  \emph{marilyn}$\rangle$ \verb}There is a drink behind door 3 .}
+\end{itemize}
+(or “\verb}door 1}” or “\verb}door 2}” -- it's up to her!) 
+The space around the integer is just there to make it easy to parse.
+
+After that you print another integer: your final choice of door.
+\begin{quote}\emph{you}$\rangle$ \verb}1}\end{quote}
+  (or \verb}2} or \verb}3} -- it's up to you!)
+You then receive whatever is behind that door.
+
+Marilyn then responds with one of two lines, depending on if there was a drink behind your final choice of door:
+\begin{itemize}
+\item \emph{marilyn}$\rangle$ \verb}Enjoy your drink!}
+\item \emph{marilyn}$\rangle$ \verb}Bad luck.}
+\end{itemize}
+And finally she will summarise the score so far.
+For instance, if you’ve received 1 drink in 3 rounds, she’ll print
+\begin{quote}\emph{marilyn}$\rangle$ \verb}Rounds: 3. Drinks: 1.}\end{quote}
+Rounds are numbered $1, 2, \ldots$.
+
+After 1000 rounds, your program should exit.
+If you end up with at least 600 drinks, no matter which strategy Marilyn uses, your program is accepted.
+Otherwise it is judged as \emph{wrong answer}.
+
+
+\section*{Example}
+
+Here is an example of the first three rounds of interaction.
+In all three rounds, the drink is behind door 1.
+
+\begin{tabbing}
+  \emph{marilyn}$\rangle$ \=\kill
+  \emph{you}$\rangle$ \>\verb}1}\\
+  \emph{marilyn}$\rangle$ \>\verb}Interesting choice. Let me open one door for you.}\\
+  \emph{marilyn}$\rangle$ \>\verb}There is nothing behind door 2 .}\\
+  \emph{you}$\rangle$ \>\verb}1}\\
+  \emph{marilyn}$\rangle$ \>\verb}Enjoy your drink!}\\
+  \emph{marilyn}$\rangle$ \>\verb}Rounds: 1. Drinks: 1.}\\[1ex]
+  \emph{you}$\rangle$ \>\verb}1}\\
+  \emph{marilyn}$\rangle$ \>\verb}Interesting choice. Let me open one door for you.}\\
+  \emph{marilyn}$\rangle$ \>\verb}There is nothing behind door 2 .}\\
+  \emph{you}$\rangle$ \>\verb}3}\\
+  \emph{marilyn}$\rangle$ \>\verb}Bad luck.}\\
+  \emph{marilyn}$\rangle$ \>\verb}Rounds: 2. Drinks: 1.}\\[1ex]
+  \emph{you}$\rangle$ \>\verb}2}\\
+  \emph{marilyn}$\rangle$ \>\verb}Interesting choice. Let me open one door for you.}\\
+  \emph{marilyn}$\rangle$ \>\verb}There is a drink behind door 1 .}\\
+  \emph{you}$\rangle$ \>\verb}1}\\
+  \emph{marilyn}$\rangle$ \>\verb}Enjoy your drink!}\\
+  \emph{marilyn}$\rangle$ \>\verb}Rounds: 3. Drinks: 2.}\\
+\end{tabbing}
+
