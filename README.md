@@ -20,9 +20,9 @@ Will Code for Drinks
 
 ### Fall 2019
 
-* Ask Marilyn (askmarilyn). Works. Needs more submissions, hard to debug. Needs Kattis expert attention.
-* Bar Shelf (barshelf). Works. Probably ready, needs some more submissions.
-* Cheaper Drink (cheaperdrink). Works. Probably ready, needs more submissions.
-* Drinking Song (drinkingsong). Works. Probably ready. More submissions would be good.
-* Elder Scroll Bar (elderscrollbar). Not ready. Needs more data files, and better explnatation of where the thumb goes. Image missing, description too long.
-* Thank God it’s Friday (tgif). Works. Probably ready. Needs more submissions. Needs better image.
+* **A** – Ask Marilyn (`askmarilyn`). Works. Needs more submissions, hard to debug. Needs Kattis expert attention.
+* **B** – Bar Shelf (`barshelf`). Works. Probably ready, needs some more submissions.
+* **C** – Cheaper Drink (`cheaperdrink`). Works. Probably ready, needs more submissions.
+* **D** – Drinking Song (`drinkingsong`). Works. Probably ready. More submissions would be good.
+* **E** – Elder Scroll Bar (`elderscrollbar`). Not ready. Needs more data files, and better explnatation of where the thumb goes. Image missing, description too long.
+* **F** – Thank God it’s Friday (`tgif`). Works. Probably ready. Needs more submissions. Needs better image.
