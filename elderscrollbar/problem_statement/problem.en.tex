@@ -2,34 +2,33 @@
 
 When the first scrollbars appeared on resizable windows during user interface development in the Elder Days, computer graphics were still primitive.
 Widgets were made with ASCII symbols and text still set in monospaced typeface.
-
+This way a window could display a so-called \emph{viewport}, a part of a much longer text, which was adjusted to fit the width of the window and allowed vertical orientation nagivation using a so-called \emph{thumb}, which represented the position of the viewport relative to the full text.
 Still, the fact that readers could freely adjust the size of the viewport and quickly scroll through their texts was an exciting and important improvement in usability of information technology.
 
-Alas, the knowledge of the Ancients has been lost in the Great Fire, which destroyed the last remaining implementations of the user interface layer. 
+Alas, the knowledge of the Ancients has been lost in the Great Cataclysm, which destroyed the last remaining implementations of the user interface layer of the Elder GUI. 
 As head programmer of the National Laboratory of Comparative User Interface Archeology it is your job to recreate the behaviour of those old machines as faithfully as possible.
 
-Thanks to many years of studies, you have full understanding of the typographical aesthetics of the Elder Days.
-Text was set in a typeface of fixed with (each character, including punctuation marks and space, had the same width), lines were set flush left (left-aligned) but ragged-right, and exactly one space separated words on the same line.
-Line-breaking was simple in those days: When a word fit on a line, it was put there.
-When the viewport was too narrow to fit a word, it was simply truncated at the right margin. 
+Thanks to many years of studies, you have full understanding of the typographical aesthetics of the Elder Days:
+Lines were set flush left but ragged-right, and exactly one space separated words on the same line; line-breaking was simple in those days---when a word fit on the current line, it was put there.
+Otherwise a new line was started.
+If the viewport was too narrow to fit a word, it was simply set on its own and truncated at the right margin. 
 The language of the Ancients was written in upper- and lowercase letters of the English alphabet without punctuation or hyphenation.
 
 Your researchers have collected countless old protocol logs of calls to the window manager layer of the lost computers.
-The log files consist of the entire text, the size of the viewport, and the line number to be displayed at the top of the viewport.
-Your job is to recreate the window as it would have been shown to the Ancients.
+The log files consist of the entire text as well as the dimensions and position of the viewport.
 
 \section*{Input}
 
-The input consists of two lines.
 The first line conists of $4$ integers $W$, $H$, $L$, $N$, separated by a single space.
 The width of the viewport is $W$, with $3\leq W\leq 200$.
 The height of the viewport is $H$, with $3\leq H\leq 200$.
-The viewport must show line $L$ of the width-aligned input as the first line.
+The viewport must show line $L$ of the width-adjusted input as the first line; you can assume that there are enough lines left to fill the window, lines are numbered $0,1,\ldots$.
+The following $N$ lines for $1\leq N\leq 10^5$ contain the text, at most 80~characters per line, including spaces; neither the first nor last character in each line are a space. 
+No word in the language of the Ancients was more than 80~characters.
 
-The second line contains $N$ characters (including spaces and punctuation), with $1\leq N\leq 10^5$, the text to be shown.
 
 \section*{Output}
 
-The window as the Ancients would have seen it, build from minus (\verb!-!), plus (\verb!+!), pipe (\verb!|!), lower-case V (\verb!v!), caret (\verb!^!), and upper-case X (\verb!X!).
+The window as the Ancients would have seen it, built from minus (\verb!-!), plus (\verb!+!), pipe (\verb!|!), lower-case V (\verb!v!), caret (\verb!^!), and upper-case X (\verb!X!).
 See the sample output for the details.
-The \emph{bar}, shown as a single \verb!X!, indicates the position of the viewport relative to the entire text, rounded down.
+The \emph{thumb}, shown as a single \verb!X!, indicates the position of the viewport relative to the entire text, rounded down.
