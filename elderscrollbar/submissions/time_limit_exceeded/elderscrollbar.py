@@ -23,6 +23,7 @@ while i < len(words):
 
 if (line):
         typesettext.append(line)
+widgetpos = int(L * (H-2) / (len(typesettext) - H + 1))
 
 print ('+' + '-' * W + '+-+')
 for i in range(L , L + H):
@@ -33,7 +34,7 @@ for i in range(L , L + H):
         stdout.write('^')
     elif i == L + H - 1:
         stdout.write('v')
-    elif i - L - 1 == L // ceil(len(typesettext)/(H-2)):
+    elif i == L + widgetpos + 1:
         stdout.write('X')
     else:
         stdout.write(' ')
