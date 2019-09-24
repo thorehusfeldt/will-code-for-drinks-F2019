@@ -15,15 +15,23 @@ void check_case() {
     int strategy;
     int rounds = 1000;
     int doors = 3;
-    sscanf(line.c_str(), "%d", &strategy);
+    int where;
+    sscanf(line.c_str(), "%d %d", &strategy, &where);
     // strategy == 0 : Monty Hall (opens empty door)
     // strategy == 1 : opens random door
     // strategy == 2 : opens door with drink
+    // where == 0: puts beer behind random door
+    // where == 1,2,3: always places drink behind door where
 
     int ctr = 0;
     for (int r = 0; r < rounds; ++r)
     {
-        int drink = 1 + random() % doors;
+        int drink;
+       
+	if (where == 0) // random door
+		drink = 1 + random() % doors;
+	else
+		drink = where;
     //    judge_message("Drink is behind door %d\n", drink);
 	int first_guess;
 	if (!(author_out >> first_guess)) {
