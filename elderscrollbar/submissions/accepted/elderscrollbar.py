@@ -1,8 +1,7 @@
-#!/usr/bin/python3
-from sys import stdout
-from math import ceil
-W, H, L, N = map(int, input().split())
-text = ' '.join([input().strip() for _ in range(N)])
+from sys import stdin, stdout
+
+W, H, L, N = map(int, stdin.readline().split())
+text = ' '.join([stdin.readline().strip() for _ in range(N)])
 words = text.split()
 i = 0
 typesettext = list()
