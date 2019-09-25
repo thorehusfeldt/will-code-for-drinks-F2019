@@ -5,12 +5,12 @@ import java.util.regex.*;
 
 public class SWRank {
   public static void main(String[] args) {
-    try (var in = new Scanner(System.in)) {
-      var n = in.nextLong();
-      var map = new RedBlackBST<Long,Object>();
-      var ans = 0;
-      for (var i = 0; i < n; ++i) {
-        var b = in.nextLong();
+    try (Scanner in = new Scanner(System.in)) {
+      long n = in.nextLong();
+      RedBlackBST<Long,Object> map = new RedBlackBST<>();
+      int ans = 0;
+      for (long i = 0; i < n; ++i) {
+        long b = in.nextLong();
         ans += map.rank(-((b << 33) + n));
         map.put(-((b<<32)+i),"");
       }
