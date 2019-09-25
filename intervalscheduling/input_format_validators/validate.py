@@ -6,7 +6,7 @@ import re
 integer = "(0|-?[1-9]\d*)"
 
 line = stdin.readline()
-assert re.match(integer + "\s*\n", line), "First line must be integer" % line
+assert re.match(integer + "\n", line), "First line must be integer" % line
 n = int(line)
 assert 1<= n <= 10**5, 'n out of range'
 for i in range(int(line)):
