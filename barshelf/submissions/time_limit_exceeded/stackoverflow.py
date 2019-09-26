@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 def countInversions(list):
+    global L
     if(len(list) <= 1):
         return list, 0
     else:
