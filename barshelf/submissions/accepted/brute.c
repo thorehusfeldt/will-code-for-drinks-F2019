@@ -18,13 +18,11 @@ void readn(int *n) {
 int main() {
     int n;
     readn(&n);
-    /* scanf(" %d", &n); */
     int ans = 0;
     for (int i = 0 ; i < n ; ++i) {
-        /* scanf(" %d", &data[i]); */
         readn(&data[i]);
         int tall = data[i] << 1;
-        for (int j = i - 1 ; j >= 0 ; --j) {
+        for (int j = 0 ; j < i ; ++j) {
             if (data[j] > tall) ++ans;
         }
     }
