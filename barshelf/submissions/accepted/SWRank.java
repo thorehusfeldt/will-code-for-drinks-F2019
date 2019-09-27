@@ -4,13 +4,14 @@ import java.util.*;
 import java.util.regex.*;
 
 public class SWRank {
-  public static void main(String[] args) {
-    try (Scanner in = new Scanner(System.in)) {
-      long n = in.nextLong();
+  public static void main(String[] args) throws IOException {
+    try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
+      long n = Long.parseLong(in.readLine());
       RedBlackBST<Long,Object> map = new RedBlackBST<>();
       int ans = 0;
-      for (long i = 0; i < n; ++i) {
-        long b = in.nextLong();
+      String[] heights in.readLine().split(" ");
+      for (int i = 0; i < n; ++i) {
+        long b = Long.parseLong(heights[i]);
         ans += map.rank(-((b << 33) + n));
         map.put(-((b<<32)+i),"");
       }
