@@ -10,12 +10,17 @@ line = stdin.readline()
 assert re.match(posinteger + "\n", line), "'%s' is not an integer" % line
 n = int(line)
 assert 100000 >= n > 0, 'n out of range'
+price = []
 for i in range(n):
     line = stdin.readline()
     assert re.match(nonnegintegerwithleadingzeros + "\n", line), "'%s' is not an integer" % line
     p = int(line)
-    assert p > 0, 'price must be nonzero in line %d' % i
-    assert len(line.strip()) <= 10, 'price out of range in line %d' % i
+    assert len(line.strip()) <= 10, 'magnet too long in line %d' % i
+    price.append(line.strip())
+    if i == 0:
+        assert int(line) > 0, 'makes no sense to start with first magnet of 0s'
+
+assert (int(''.join(price)) > 0)
 
 assert not stdin.readline(), 'extra input'
 # Nothing to report
