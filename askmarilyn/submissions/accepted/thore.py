@@ -10,7 +10,6 @@ for _ in range(rounds):
     first_choice = random.choice(list(doors))
     doors.remove(first_choice)
     print (first_choice)
-    assert input()
     line = input().split()
     hint = int(line[-2])
     if line[2] == 'nothing':

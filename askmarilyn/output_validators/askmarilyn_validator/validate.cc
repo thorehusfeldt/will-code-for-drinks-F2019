@@ -56,7 +56,6 @@ void check_case() {
 	{ 
 		hint = drink;
 	}
-	cout << "Interesting choice. Let me open one door for you.\n";
 	if (hint == drink)
 	{
 		cout << "There is a drink behind door ";
