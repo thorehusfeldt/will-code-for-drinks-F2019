@@ -9,7 +9,7 @@ nonnegintegerwithleadingzeros = "([0-9]*)"
 line = stdin.readline()
 assert re.match(posinteger + "\n", line), "'%s' is not an integer" % line
 n = int(line)
-assert 100000 >= n > 0, 'n out of range'
+assert 10000 >= n > 0, 'n out of range'
 price = []
 for i in range(n):
     line = stdin.readline()
