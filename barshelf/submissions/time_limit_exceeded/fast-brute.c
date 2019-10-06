@@ -19,13 +19,15 @@ void readn(int *n) {
 int main() {
     int n;
     readn(&n);
-    int ans = 0;
+    long long ans = 0;
     for (int i = 0 ; i < n ; ++i) {
         readn(&data[i]);
         int tall = data[i] << 1;
+		int subans = 0;
         for (int j = 0 ; j < i ; ++j) {
-            ans += (data[j] > tall);
+            subans += (data[j] > tall);
         }
+		ans += subans;
     }
-    printf("%d\n", ans);
+    printf("%lld\n", ans);
 }

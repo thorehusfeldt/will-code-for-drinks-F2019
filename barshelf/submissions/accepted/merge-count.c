@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int merge_and_count(int* a, int* tmp, int lo, int mid, int hi){
+long long merge_and_count(int* a, int* tmp, int lo, int mid, int hi){
 	// from a[lo]...a[mid] and a[mid + 1],... a[hi]
-	int ct = 0;
+	long long ct = 0;
 	int i = lo;
 	int j = mid + 1;
 
@@ -26,10 +26,10 @@ int merge_and_count(int* a, int* tmp, int lo, int mid, int hi){
 	return ct;
 	}
 
-int count_inversions(int* a, int* tmp, int lo, int hi) {
+long long count_inversions(int* a, int* tmp, int lo, int hi) {
 	if (hi  <= lo) return 0;
         int mid = lo + (hi - lo) / 2;
-        int ct = count_inversions(a, tmp, lo,    mid);
+        long long ct = count_inversions(a, tmp, lo,    mid);
         ct +=    count_inversions(a, tmp, mid+1, hi );
         ct +=    merge_and_count(a, tmp, lo, mid, hi);
         return ct;
@@ -41,5 +41,5 @@ int main() {
 	int* a =   malloc(n * sizeof(int));
 	int* tmp = malloc(n * sizeof(int));
 	for (int i = 0; i < n; ++i) scanf("%d", &a[i]);
-	printf ("%d\n", count_inversions(a, tmp, 0, n - 1));
+	printf ("%lld\n", count_inversions(a, tmp, 0, n - 1));
 }

@@ -8,7 +8,7 @@ public class SWRank {
     try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
       long n = Long.parseLong(in.readLine());
       RedBlackBST<Long,Object> map = new RedBlackBST<>();
-      int ans = 0;
+      long ans = 0;
       String[] heights = in.readLine().split(" ");
       for (int i = 0; i < n; ++i) {
         long b = Long.parseLong(heights[i]);
