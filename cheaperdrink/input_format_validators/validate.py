@@ -3,8 +3,8 @@ from sys import stdin
 import sys
 import re
 
-posinteger = "([1-9]\d*)"
-nonnegintegerwithleadingzeros = "(\d*)"
+posinteger = "([1-9][0-9]*)"
+nonnegintegerwithleadingzeros = "([0-9]*)"
 
 line = stdin.readline()
 assert re.match(posinteger + "\n", line), "'%s' is not an integer" % line

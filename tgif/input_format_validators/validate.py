@@ -3,7 +3,7 @@ from sys import stdin
 import sys
 import re
 
-integer = "(0|-?[1-9]\d*)"
+integer = "(0|-?[1-9][0-9]*)"
 monthname = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 dayname = "(MON|TUE|WED|THU|FRI|SAT|SUN)"
 

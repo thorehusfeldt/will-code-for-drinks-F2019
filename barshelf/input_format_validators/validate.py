@@ -3,7 +3,7 @@ from sys import stdin
 import sys
 import re
 
-integer = "([1-9]\d*)"
+integer = "([1-9][0-9]*)"
 
 MAX = 10**9
 

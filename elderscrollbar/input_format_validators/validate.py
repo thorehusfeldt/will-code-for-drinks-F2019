@@ -15,7 +15,7 @@ assert 1 <= N <= 10**5
 textlines = []
 for i in range(N):
     line = stdin.readline()
-    assert re.match('\w.*\w\n', line) or re.match('\w\n',line), i
+    assert re.match('[a-zA-Z].*[a-zA-Z]\n', line) or re.match('[a-zA-Z]\n',line), i
     assert len(line) <= 81
     textlines.append(line.strip())
 text = ' '.join(textlines)
