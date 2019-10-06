@@ -1,3 +1,4 @@
+#pragma GCC optimize ("Ofast")
 #include "stdio.h"
 
 #define M 100000
@@ -23,7 +24,7 @@ int main() {
         readn(&data[i]);
         int tall = data[i] << 1;
         for (int j = 0 ; j < i ; ++j) {
-            if (data[j] > tall) ++ans;
+            ans += (data[j] > tall);
         }
     }
     printf("%d\n", ans);
