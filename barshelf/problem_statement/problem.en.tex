@@ -21,21 +21,33 @@ For instance, in the image below, the bottles have height $4$, $5$, $2$, $1$, an
 The bottles of height $4$ and $1$ form a messy pair (because $4 > 2\cdot 1$), but $4$ and $2$ do not (because $4\not> 2\cdot 2$).
 The height-$5$ bottle forms two messy pairs, with $1$ and $2$, respectively.
 The bottles of height $1$ and $3$ are not messy, since the smaller one is nicely placed left of the larger one, just as your boss likes it.
+The messiness of the entire shelf is the number of messy pairs.
+Here is a shelf with three messy pairs:
 
 \medskip
 \includegraphics[width = 5cm]{img/messy_bottles.png}
 
-The messiness of the entire shelf is the number of messy pairs.
-In the above example, there were three messy pairs.
 
 
 \section*{Input}
 
 The input consists of two lines.
-On the first line, the number $n$ of bottles on the shelf, where $n\in\{1,\ldots, 10^5\}$.
-On the second line, $n$ integers, separated by space, giving the height (in nanometers) of the $n$ bottles from left to right.
+On the first line, the number $n$ of bottles on the shelf, with $n\geq 1$.
+On the second line, $n$ integers, separated by space, giving the height (in nanometers) of each bottle from left to right.
 Each height is an integer between $1$ and $10^9$.
 
 \section*{Output}
 
 Output a single integer: the messiness of the shelf.
+
+\section*{Scoring}
+
+Your score depends on the length of the shelf that you can handle.
+The maximum score is $6$~points.
+
+\medskip
+\noindent
+\begin{tabular}{lcccc}
+Maximum $n$ & $10$ & $1\,000$  & $100\,000$ & $1\,000\,000$ \\ \hline
+Points      & $1$  & $1$       & $3$        & $1$ \\
+\end{tabular}

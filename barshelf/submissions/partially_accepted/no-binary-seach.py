@@ -31,4 +31,4 @@ def mergeAndCount(left, right):
 
 input()
 L = list(map(int, input().split()))
-print (countInversions(L))
+print (countInversions(L)[1])
