@@ -32,7 +32,7 @@ Here is a shelf with three messy pairs:
 \section*{Input}
 
 The input consists of two lines.
-On the first line, the number $n$ of bottles on the shelf, with $n\geq 1$.
+On the first line, the number $n$ of bottles on the shelf, with $1\leq n\leq 100\,000$.
 On the second line, $n$ integers, separated by space, giving the height (in nanometers) of each bottle from left to right.
 Each height is an integer between $1$ and $10^9$.
 
@@ -42,12 +42,7 @@ Output a single integer: the messiness of the shelf.
 
 \section*{Scoring}
 
-Your score depends on the length of the shelf that you can handle.
-The maximum score is $6$~points.
+Your score depends on the length of the shelf that you can handle within the time limit, one point per order of magnitude.
+Thus, you get $i$ points if your submission works on all test inputs with $n\leq 10^i$ bottles, for $i\in\{1,\ldots, 5\}$.
+The maximum score is $5$~points.
 
-\medskip
-\noindent
-\begin{tabular}{lcccc}
-Maximum $n$ & $10$ & $1\,000$  & $100\,000$ & $1\,000\,000$ \\ \hline
-Points      & $1$  & $1$       & $3$        & $1$ \\
-\end{tabular}
