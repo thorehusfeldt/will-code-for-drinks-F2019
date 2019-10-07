@@ -2,3 +2,4 @@
 *.log
 /*.pdf
 /*/*.pdf
+/barshelf/data/secret

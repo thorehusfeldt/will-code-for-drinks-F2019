@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-
+#!/usr/bin/python3 
+# @EXPECTED_SCORE@:0
 def countInversions(list):
     if(len(list) <= 1):
         return list, 0
@@ -16,7 +16,7 @@ def mergeAndCount(left, right):
 
     i,j = 0,0                
     while(i < len(left) and j < len(right)):
-        if(left[i] < right[j]):
+        if(left[i] < right[j]): # this is wrong, there can be plenty of significant inversions with right[j] among left[i:]
             result.append(left[i])
             i += 1
         else:
@@ -31,4 +31,4 @@ def mergeAndCount(left, right):
 
 input()
 L = list(map(int, input().split()))
-print (countInversions(L))
+print (countInversions(L)[1])

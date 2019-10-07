@@ -9,11 +9,14 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
-int main() {
+int main(int argc, char *argv[]) {
+	if (argc != 3) {
+       		cerr << "Wrong number of arguments to gen_overflow" << endl;
+		return 1;
+	}
 	cin.sync_with_stdio(false);
 	cin.exceptions(cin.failbit);
-	int N;
-	cin >> N;
+	int N = atoi(argv[1]);
 	vi nums = {1};
 	for (;;) {
 		ll x = nums.back();
