@@ -41,6 +41,7 @@ if (line):
         typesettext.append(line)
 
 assert L + H <= len(typesettext)
+assert H < len(typesettext)
 
 assert not stdin.readline()
 # Nothing to report
