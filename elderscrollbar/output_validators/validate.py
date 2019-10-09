@@ -9,7 +9,7 @@ with open(argv[1], 'r') as inp:
 
 f_ans = open(argv[2], 'r')
 
-LENCIENCY = .2 # accept thumb to be off by 20%, rounded up
+LENCIENCY = 0.1 # accept thumb to be off by 10%, rounded up, so +/- 1 is always ok
 
 ok = True
 i = 0
