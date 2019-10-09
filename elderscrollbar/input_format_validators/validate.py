@@ -3,14 +3,14 @@ from sys import stdin
 import sys
 import re
 
-integer = "(0|[1-9]\d*)"
+integer = "(0|[1-9][0-9]*)"
 
 line = stdin.readline()
 assert re.match(integer + ' ' + integer + ' '  + integer + ' ' + integer +'\n', line), 'first line: expected four integers'
-W, H, L, N = map(int, line.split())
+W, H, F, N = map(int, line.split())
 assert 3 <= W <= 200
 assert 3 <= H <= 200
-assert 1 <= N <= 10**5
+assert 1 <= N <= 30000
 
 textlines = []
 for i in range(N):
@@ -40,7 +40,7 @@ while i < len(words):
 if (line):
         typesettext.append(line)
 
-assert L + H <= len(typesettext)
+assert 0 <= F <= len(typesettext) - H
 assert H < len(typesettext)
 
 assert not stdin.readline()
