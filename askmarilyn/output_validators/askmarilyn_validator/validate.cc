@@ -7,11 +7,26 @@
 
 using namespace std;
 
+class miniPRG {
+	unsigned int _seed = 0;
+	int _a = 1016404597;
+	int _c = 12345;
+	int _m = 2147483648;
+
+	public:
+	int myrnd() {
+		_seed = (_a * _seed + _c ) % _m;
+		return  _seed;
+	}
+};
+
 void check_case() {
 	string line;
 	/* Get test mode description from judge input file */
 	assert(getline(judge_in, line));
 
+
+	miniPRG R;
 	int strategy;
 	int rounds = 1000;
 	int doors = 3;
@@ -30,7 +45,7 @@ void check_case() {
 	{
 		switch(where) {
 			case 0:
-				drink = 'A' + random() % doors; 
+				drink = 'A' + R.myrnd() % doors; 
 				break;
 			case 1:
 			case 2:
@@ -53,12 +68,12 @@ void check_case() {
 		switch (strategy) {
 			case 0:
 				do {
-					hint = 'A' + random() % doors;
+					hint = 'A' + R.myrnd() % doors;
 				} while (hint == drink || hint == first_guess);
 				break;
 			case 1:
 				do {
-					hint = 'A' + random() % doors;
+					hint = 'A' + R.myrnd() % doors;
 				} while (hint == first_guess);
 				break;
 			case 2:
@@ -67,7 +82,7 @@ void check_case() {
 				}
 				else {
 					do {
-						hint = 'A' + random() % doors;
+						hint = 'A' + R.myrnd() % doors;
 					} while (hint == first_guess);
 				}
 				break;
