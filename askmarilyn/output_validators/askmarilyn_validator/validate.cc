@@ -94,8 +94,8 @@ void check_case() {
 		if (!(author_out >> second_guess)) {
 			wrong_answer("No final door guessed in round %d\n", r+1);
 		}
-		if (second_guess < 'A' || first_guess > 'D') {
-			wrong_answer("Final guess in round %d out of range: %c\n", r+1, first_guess);
+		if (second_guess < 'A' || second_guess >= 'A' + doors) {
+			wrong_answer("Final guess in round %d out of range: %c\n", r+1, second_guess);
 		} 
 		if (second_guess == drink) ++ctr;
 		cout << (second_guess == drink) << ' ' << drink << endl;
