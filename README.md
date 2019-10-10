@@ -6,4 +6,4 @@ Will Code for Drinks Fall 2019
 * **C** – Cheaper Drink (`cheaperdrink`). DONE.
 * **D** – Drinking Song (`drinkingsong`). DONE.
 * **E** – Elder Scroll Bar (`elderscrollbar`). DONE. 
-* **F** – Thank God it’s Friday (`tgif`). DONE. Maybe find better image.
+* **F** – Thank God it’s Friday (`tgif`). DONE. 
