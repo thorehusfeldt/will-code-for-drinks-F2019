@@ -1,15 +1,12 @@
->1
-<There is nothing behind door 2 .
->1
-<Enjoy your drink!
-<Rounds: 1. Drinks: 1.
->1
-<There is nothing behind door 2 .
->3
-<Bad luck.
-<Rounds: 2. Drinks: 1.
->2
-<There is a drink behind door 1 .
->1
-<Enjoy your drink!
-<Rounds: 3. Drinks: 2.
+>A
+<B 0 
+>A
+<1 A
+>A
+<B 0
+>C
+<0 A
+>B
+<A 1
+>A
+<1 A

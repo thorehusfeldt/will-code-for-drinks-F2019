@@ -21,69 +21,45 @@ void check_case() {
     // strategy == 1 : opens random door
     // strategy == 2 : opens door with drink
     // where == 0: puts beer behind random door
-    // where == 1,2,3: always places drink behind door where
+    // where == 1,2,3: always places drink behind door behind A, B, C
 
     int ctr = 0;
     for (int r = 0; r < rounds; ++r)
     {
-        int drink;
-       
-	if (where == 0) // random door
-		drink = 1 + random() % doors;
-	else
-		drink = where;
-    //    judge_message("Drink is behind door %d\n", drink);
-	int first_guess;
-	if (!(author_out >> first_guess)) {
-            wrong_answer("No door guessed in round %d\n", r+1);
-	}
-	if (first_guess < 1 || first_guess > doors) {
-            wrong_answer("First guess in round %d out of range: %d\n", r+1, first_guess);
+        unsigned char drink = 'A' + ( (where == 0) ? random() % doors : where - 1);
+        unsigned char first_guess;
+	author_out >> first_guess;
+	if (first_guess < 'A' || first_guess > 'D') {
+            wrong_answer("First guess in round %d out of range: %c\n", r+1, first_guess);
         } 
-     //   judge_message("Guess %d (1) is %d\n", r + 1, first_guess);
-	int hint;
-	if (strategy == 0)
-	{
-		hint = 1 + random() % doors;
-		while (hint == drink || hint == first_guess)
-			hint = 1 + (hint + 1) % doors;
+	unsigned char hint;
+	switch (strategy) {
+		case 0:
+			hint = 'A' + random() % doors;
+			while (hint == drink || hint == first_guess)
+				hint = 'A' + (hint - 'A' + 1) % doors;
+			break;
+		case 1:
+			hint = 'A' + random() % doors;
+			while (hint == first_guess)
+				hint = 'A' + (hint - 'A' + 1) % doors;
+			break;
+		case 2:
+			hint = drink;
+			break;
 	}
-	if (strategy == 1)
-	{
-		hint = 1 + random() % doors;
-	}
-	if (strategy == 2)
-	{ 
-		hint = drink;
-	}
-	if (hint == drink)
-	{
-		cout << "There is a drink behind door ";
-	}
-	else
-	{
-		cout << "There is nothing behind door ";
-	}
-	cout << hint;
-	cout << " .\n";
+	cout << hint << ' ' << (hint == drink) << endl;
 	cout.flush();
 
-	int second_guess = -1;
-	if (!(author_out >> second_guess)) {
-            wrong_answer("No 2nd response guessed in round %d\n", r+1);
-	}
-	if (second_guess == drink)
-	{
-	    cout << "Enjoy your drink!\n";
-	    ctr++;
-	}
-	else
-	{
-	    cout << "Bad luck.\n";
-	}
-	cout << "Rounds: " << r+1 << ". Drinks: " << ctr << ".\n";
+	unsigned char second_guess;
+	author_out >> second_guess;
+	if (second_guess < 'A' || first_guess > 'D') {
+            wrong_answer("Final guess in round %d out of range: %c\n", r+1, first_guess);
+        } 
+	if (second_guess == drink) ++ctr;
+	cout << (second_guess == drink) << ' ' << drink << endl;
 	cout.flush();
-	judge_message("Score %d: %d\n", r+1, ctr);
+	//judge_message("Score %d: %d\n", r+1, ctr);
     }
     if  (ctr < 600) // error prob. < .0001
        wrong_answer("Too few drinks\n");

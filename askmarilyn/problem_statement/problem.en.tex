@@ -6,14 +6,14 @@ Photo for \emph{Parade} magazine 2017.
 Author:  Ethan Hill. 
 Wikimedia Commons, licensed under cc-by-sa-2.0.}
 
-Marilyn is by far your favourite bartender, because she turns every purchase into a game.
+Marilyn is by far your favourite bartender, because she turns every order into a game.
 
-At the bar, there are three small boxes with doors.
+At the bar, there are three small boxes with doors labelled A, B, and C.
 When you buy a drink, Marilyn places the bottle in one of the boxes; you don't know which.
 Then the following ritual unfolds.
 You point to one of the three doors.
-Marilyn will then smile enigmatically and open one of the three doors, possibly the one you just pointed to, showing its contents.
-You then get to change your original decision: maybe you now pick the door Marilyn just opened (in particular if you can see the drink there!), or you stick with your first choice, or you pick the remaining door.
+Marilyn will then smile enigmatically and open one of the other doors, showing its contents.
+You then get to change your original decision: maybe you now pick the door Marilyn just opened (in particular if you can see the bottle there!), or you stick with your first choice, or you pick the remaining door.
 Whatever you finally choose is what you get.
 
 This entire ritual – you choose, Marilyn opens, you make your final decision -- is called a \emph{round}.
@@ -23,39 +23,37 @@ You need to get as many drinks as you can.
 \section*{Interaction}
 
 You program interacts with Marilyn using standard input and output.
-You start each round by printing your initial choice of door, as a single integer on a line
-\begin{quote}\emph{you}$\rangle$ \verb|2|\end{quote}
-(or \verb|1| or \verb|3| -- it's up to you!)
-Now Marilyn will pick a door -- she may pick the same door that you just chose, or she may be in a good mood and pick the door with a drink behind it, or she may pick a door with no drink behind it; she may choose randomly, or helpfully, or she may want to deliberately confuse you.
+You start each round by printing your initial choice of door, as a single letter on a line:
+\begin{quote}\emph{you}$\rangle$ \verb|A| -- meaning ``My initial choice is door A''\end{quote}
+Now Marilyn will pick one of the other two doors -- she may be in a good mood and pick the door with a drink behind it, or she may pick a door with no drink behind it; she may choose randomly, or helpfully, or she may want to deliberately confuse you.
 Being a good bartender, Marilyn knows where the drink is, and she knows you well enough to know your strategy, both of which she may take into account or not.
-Let's say she chose to open door~3; she will then truthfully print either of:
+She'll print her door name, followed by the number of bottles ($0$ or $1$) behind that door.
+For instance, if she chose to open door~C, she will truthfully respond with  either of:
 \begin{itemize}
   \item
-\emph{marilyn}$\rangle$ \verb|There is nothing behind door 3 .|
+\emph{marilyn}$\rangle$ \verb|C 0| -- meaning ``Well, wouldn't you know it? There is nothing behind door C.''
 \item
-  \emph{marilyn}$\rangle$ \verb|There is a drink behind door 3 .|
+  \emph{marilyn}$\rangle$ \verb|C 1| -- meaning ``Huh. Looks like the bottle is behind door C.''
 \end{itemize}
-(or “\verb|door 1|” or “\verb|door 2|” -- it's up to her!) 
-The space around the integer is just there to make it easy to parse.
+We let her output just those two symbols---instead of her actual charming, varied, and loquacious banter---to make it easy to parse.
+You'd have to meet her in person for the real experience.
 
-After that you print another integer, namely your final choice of door.
-Let's say you pick door~1:
-\begin{quote}\emph{you}$\rangle$ \verb|1|\end{quote}
-  (or \verb|2| or \verb|3| -- it's up to you!)
-Marilyn will respond with one of two lines, depending on if there was a drink behind your final choice of door:
+After that you print another letter, namely your final choice of door.
+Let's say you pick door~A:
+\begin{quote}
+  \emph{you}$\rangle$ \verb|A| -- meaning ``I'll take whatever is behind door A now.'' 
+\end{quote}
+Marilyn will respond with one of two lines, depending on whether there was a drink behind your final choice of door or not.
+The format is the number of bottles you receive ($0$ or $1$) followed by the door that actually concealed the bottle.
 \begin{itemize}
-\item \emph{marilyn}$\rangle$ \verb|Enjoy your drink!|
-\item \emph{marilyn}$\rangle$ \verb!Bad luck.!
+  \item \emph{marilyn}$\rangle$ \verb|1 A| -- meaning ``Door A  was a great choice. You're always so clever. Enjoy your drink.''
+\item \emph{marilyn}$\rangle$ \verb|0 B| -- meaning ``Oh, what a shame. The bottle was actually behind door B.''
 \end{itemize}
-And finally she will summarise the score so far.
-For instance, if you’ve received 1 drink in 3 rounds, she’ll print
-\begin{quote}\emph{marilyn}$\rangle$ \verb!Rounds: 3. Drinks: 1.!\end{quote}
-Rounds are numbered $1, 2, \ldots$.
 After 1000 rounds, your program must exit. 
 If you end up with at least 600 drinks, no matter which strategy Marilyn uses, your program is accepted.
 Otherwise it is judged as \emph{wrong answer}.
 
-
 \medskip
 Below is an example of the first three rounds of interaction.
-In each of the rounds, the drink is behind door 1.
+In each of the rounds, the drink is behind door~A.
+You got $2$ of the $3$ drinks.

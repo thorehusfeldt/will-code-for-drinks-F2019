@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/python3
 
 import random
 
@@ -6,21 +6,20 @@ rounds = 1000
 n = 3
 
 for _ in range(rounds):
-    doors = set(range(1, n + 1))
-    first_choice = random.choice(list(doors))
+    doors = set('ABC')
+    first_choice = random.choice('ABC')
     doors.remove(first_choice)
     print (first_choice)
     line = input().split()
-    hint = int(line[-2])
-    if line[2] == 'nothing':
+    hint, bottle = line
+    if bottle == '0':
         if hint in doors:
             doors.remove(hint)
-        second_choice = random.choice(list(doors))
+        second_choice = doors.pop()
     else:
         second_choice = hint
     print(second_choice)
-    assert input() in ["Enjoy your drink!", "Bad luck."]
-    assert input()
+    assert input() 
 
 
 
