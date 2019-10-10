@@ -1,5 +1,5 @@
 #!/usr/bin/python3 
-# @EXPECTED_SCORE@:0
+
 def countInversions(list):
     if(len(list) <= 1):
         return list, 0

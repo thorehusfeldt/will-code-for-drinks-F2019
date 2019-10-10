@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-PPATH=$(realpath ..)
-
 . ../../testdata_tools/gen.sh
 
 use_solution hybrid.py
@@ -25,6 +23,7 @@ sample 1
 
 group group1 1
 limits n=$MAXN1
+tc 1
 tc 1-tiny-identical0 gen_identicalbottles n=1 h=1 
 tc 1-tiny-identical1 gen_identicalbottles n=1 h=$MAXM
 tc 1-tiny-bitonic_uu gen_bitonic n=$MAXN1 first=up second=up

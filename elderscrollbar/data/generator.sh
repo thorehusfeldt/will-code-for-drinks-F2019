@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-PPATH=$(realpath ..)
-
-. ../../testdata_tools/gen-acm.sh
+USE_SCORING=0
+. ../../testdata_tools/gen.sh
 
 use_solution sl.cpp
 
 compile gen_random.py
 compile gen_handcrafted.py
+
+sample 1
+sample 2
 
 tc handcrafted-0  gen_handcrafted 0
 tc handcrafted-1  gen_handcrafted 1
