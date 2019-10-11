@@ -2,7 +2,7 @@
 
 . ../../testdata_tools/gen.sh
 
-use_solution middle.cpp
+use_solution using-lists.py
 
 compile gen_identicalbottles.py
 compile gen_bitonic.py
@@ -79,19 +79,19 @@ tc 4-large-random3 gen_random n=$MAXN4
 tc 4-large-messy gen_messy n=$MAXN4
 tc 4-overflow gen_overflow $MAXN4
 
-#
-#group group5 1
-#limits n=$MAXN5
-#tc 5-huge-identical0 gen_identicalbottles n=$MAXN5 h=1
-#tc 5-huge-identical1 gen_identicalbottles n=$MAXN5 h=$MAXM
-#tc 5-huge-bitonic_uu gen_bitonic n=$MAXN5 first=up second=up
-#tc 5-huge-bitonic_ud gen_bitonic n=$MAXN5 first=up second=down
-#tc 5-huge-bitonic_du gen_bitonic n=$MAXN5 first=down second=up
-#tc 5-huge-bitonic_dd gen_bitonic n=$MAXN5 first=down second=down
-#tc 5-huge-random0 gen_random n=$MAXN5
-#tc 5-huge-random1 gen_random n=$MAXN5
-#tc 5-huge-random2 gen_random n=$MAXN5
-#tc 5-huge-random3 gen_random n=$MAXN5
-#tc 5-huge-messy gen_messy n=$MAXN5
-#tc 5-overflow gen_overflow $MAXN5
+
+group group5 1
+limits n=$MAXN5
+tc 5-huge-identical0 gen_identicalbottles n=$MAXN5 h=1
+tc 5-huge-identical1 gen_identicalbottles n=$MAXN5 h=$MAXM
+tc 5-huge-bitonic_uu gen_bitonic n=$MAXN5 first=up second=up
+tc 5-huge-bitonic_ud gen_bitonic n=$MAXN5 first=up second=down
+tc 5-huge-bitonic_du gen_bitonic n=$MAXN5 first=down second=up
+tc 5-huge-bitonic_dd gen_bitonic n=$MAXN5 first=down second=down
+tc 5-huge-random0 gen_random n=$MAXN5
+tc 5-huge-random1 gen_random n=$MAXN5
+tc 5-huge-random2 gen_random n=$MAXN5
+tc 5-huge-random3 gen_random n=$MAXN5
+tc 5-huge-messy gen_messy n=$MAXN5
+tc 5-overflow gen_overflow $MAXN5
 
