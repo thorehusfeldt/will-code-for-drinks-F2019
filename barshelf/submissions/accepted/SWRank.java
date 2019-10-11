@@ -1,23 +1,40 @@
+/* Uses ranked sequence data type (implemented as Red-Black ST) from 
+ * Sedgewick--Wayne. Running time O(n log n). Based on Troels Bjerre Lunds
+ * solution to original barshelf problem.
+ */
 
 import java.io.*;
 import java.util.*;
 import java.util.regex.*;
 
 public class SWRank {
-  public static void main(String[] args) throws IOException {
-    try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
-      long n = Long.parseLong(in.readLine());
-      RedBlackBST<Long,Object> map = new RedBlackBST<>();
-      long ans = 0;
-      String[] heights = in.readLine().split(" ");
-      for (int i = 0; i < n; ++i) {
-        long b = Long.parseLong(heights[i]);
-        ans += map.rank(-((b << 33) + n));
-        map.put(-((b<<32)+i),"");
-      }
-      System.out.println(ans);
+    public static void main(String[] args) throws IOException {
+	try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
+	    int n = Integer.parseInt(in.readLine());
+	    String[] heights = in.readLine().split(" ");
+	    int [] smaller = new int[n];
+	    int [] larger = new int[n];
+	    RedBlackBST<Long,Integer> left = new RedBlackBST<>();
+	    RedBlackBST<Long,Integer> right = new RedBlackBST<>();
+	    for (int i = 0; i < n; ++i) {
+		long h = Long.parseLong(heights[i]);
+		h = (h << 32) + i;
+		larger[i] = left.size() - left.rank((h - i) * 2) ;
+		left.put(h, -1);
+	    }
+	    for (int i = n - 1; i >=  0; --i) {
+		long h = Long.parseLong(heights[i]);
+		h = (h << 32) - i;
+		smaller[i] = right.rank((h + n) / 2);
+		right.put(h, -1);
+	    }
+	    long ans = 0;
+	    for (int i = 0; i < n; ++i) {
+		ans += ( (long) smaller[i]) * ((long) larger[i]); // yes, necessary conversion
+	    }
+	    System.out.println(ans);
+	}
     }
-  }
 }
 
 // transitive include of algs4 RedBlackBST, + change public to package private and fix imports
@@ -69,7 +86,7 @@ public class SWRank {
  *  when associating a value with a key that is already in the symbol table,
  *  the convention is to replace the old value with the new value.
  *  Unlike {@link java.util.Map}, this class uses the convention that
- *  values cannot be {@code null}—setting the
+ *  values cannot be {@code null}--setting the
  *  value associated with a key to {@code null} is equivalent to deleting the key
  *  from the symbol table.
  *  <p>
@@ -548,7 +565,7 @@ class RedBlackBST<Key extends Comparable<Key>, Value> {
      * @param  k the order statistic
      * @return the key in the symbol table of rank {@code k}
      * @throws IllegalArgumentException unless {@code k} is between 0 and
-     *        <em>n</em>–1
+     *        <em>n</em>-1
      */
     public Key select(int k) {
         if (k < 0 || k >= size()) {
