@@ -14,15 +14,12 @@ This has led to long discussions between you and your boss about how messy the s
 After all, a bottle placed to the left of one that is just slightly smaller doesn't look very messy at all.
 On the other hand, even you have to admit that very big size differences do look pretty messy.
 Finally, you have agreed on the following rule:
-A pair of bottles, not necessarily adjacent, is a \emph{messy pair} if the left one is more than twice as large as the right one.
+Three bottles, necessarily adjacent, are a \emph{messy trio} if the left one is at least twice as large as the middle one, and middle one at least twice as large as the right one.
 
 \medskip
 For instance, in the image below, the bottles have height $4$, $5$, $2$, $1$, and $3$, from left to right.
-The bottles of height $4$ and $1$ form a messy pair (because $4 > 2\cdot 1$), but $4$ and $2$ do not (because $4\not> 2\cdot 2$).
-The height-$5$ bottle forms two messy pairs, with $1$ and $2$, respectively.
-The bottles of height $1$ and $3$ are not messy, since the smaller one is nicely placed left of the larger one, just as your boss likes it.
+The bottles of height $4$, $2$, and $1$ form a messy trio (because $4\geq 2\geq 1$), and so do $5$, $4$, and $1$.
 The messiness of the entire shelf is the number of messy pairs.
-Here is a shelf with three messy pairs:
 
 \medskip
 \includegraphics[width = 5cm]{img/messy_bottles.png}
