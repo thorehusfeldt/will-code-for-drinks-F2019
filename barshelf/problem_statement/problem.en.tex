@@ -11,15 +11,15 @@ The patrons at the bar, of course, disagree.
 They much prefer a certain amount of messiness in how the bottles are organised, which communicates a welcoming atmosphere of carefully orchestrated insouciance. 
 
 This has led to long discussions between you and your boss about how messy the shelf can be.
-After all, a bottle placed to the left of one that is just slightly smaller doesn't look very messy at all.
+You boss concedes that a bottle placed to the left of one that is just slightly smaller doesn't look very messy at all.
 On the other hand, even you have to admit that very big size differences do look pretty messy.
 Finally, you have agreed on the following rule:
-Three bottles, necessarily adjacent, are a \emph{messy trio} if the left one is at least twice as large as the middle one, and middle one at least twice as large as the right one.
+Three bottles, not necessarily adjacent, are a \emph{messy trio} if the one to the left is at least twice as large as the middle one, which in turn is at least twice as large as the one to the right.
 
 \medskip
 For instance, in the image below, the bottles have height $4$, $5$, $2$, $1$, and $3$, from left to right.
-The bottles of height $4$, $2$, and $1$ form a messy trio (because $4\geq 2\geq 1$), and so do $5$, $4$, and $1$.
-The messiness of the entire shelf is the number of messy pairs.
+The bottles of height $4$, $2$, and $1$ form a messy trio (because $\frac12 \cdot 4 \geq 2\geq 2\cdot  1$), and so do $5$, $4$, and $1$.
+The messiness of the entire shelf is the number of messy pairs, in this case $2$.
 
 \medskip
 \includegraphics[width = 5cm]{img/messy_bottles.png}
@@ -36,10 +36,11 @@ Each height is an integer between $1$ and $10^9$.
 \section*{Output}
 
 Output a single integer: the messiness of the shelf.
+Note that this number can be quite large, but no larger than $\binom{n}{3}$, which is bounded by $2 \times 10^{14}$.
 
 \section*{Scoring}
 
-Your score depends on the length of the shelf that you can handle within the time limit, one point per order of magnitude.
-Thus, you get $i$ points if your submission works on all test inputs with $n\leq 10^i$ bottles, for $i\in\{1,\ldots, 5\}$.
-The maximum score is $5$~points.
+Your score depends on the length of the shelf that you can handle within the time limit.
+You get one point for $n\leq 1\,000$, another for $n\leq 10\,000$, and yet another for $100\,000$. 
+The maximum score is $3$~points.
 
