@@ -1,8 +1,8 @@
 Will Code for Drinks Fall 2019
 ==============================
 
-* **A** – Ask Marilyn (`askmarilyn`). Works. Needs more submissions, hard to debug. Needs Kattis expert attention.
-* **B** – Bar Shelf (`barshelf`). DONE. Not great.
+* **A** – Ask Marilyn (`askmarilyn`). DONE.
+* **B** – Bar Shelf (`barshelf`). DONE. 
 * **C** – Cheaper Drink (`cheaperdrink`). DONE.
 * **D** – Drinking Song (`drinkingsong`). DONE.
 * **E** – Elder Scroll Bar (`elderscrollbar`). DONE. 
