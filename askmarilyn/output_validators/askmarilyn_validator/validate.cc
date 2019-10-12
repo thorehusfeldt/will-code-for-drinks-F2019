@@ -9,14 +9,13 @@ using namespace std;
 
 class miniPRG {
 	unsigned int _seed = 0;
-	int _a = 1016404597;
-	int _c = 12345;
-	int _m = 2147483648;
+	unsigned int _a = 1016404597;
+	unsigned int _c = 12345;
 
 	public:
 	int myrnd() {
-		_seed = (_a * _seed + _c ) % _m;
-		return  _seed;
+		_seed = (_a * _seed + _c );
+		return (int) (_seed >> 1);
 	}
 };
 
