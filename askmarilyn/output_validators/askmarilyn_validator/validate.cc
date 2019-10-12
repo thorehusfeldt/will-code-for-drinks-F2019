@@ -30,7 +30,7 @@ void check_case() {
 	int rounds = 1000;
 	int doors = 3;
 	int where;
-	unsigned char drink = 'A';
+	char drink = 'A';
 	sscanf(line.c_str(), "%d %d", &strategy, &where);
 	// strategy == 0 : Monty Hall (opens empty, other door)
 	// strategy == 1 : Random (opens random other door)
@@ -44,35 +44,35 @@ void check_case() {
 	{
 		switch(where) {
 			case 0:
-				drink = 'A' + R.myrnd() % doors; 
+				drink = (char) ('A' + R.myrnd() % doors);
 				break;
 			case 1:
 			case 2:
 			case 3:
-				drink = 'A' + where - 1;
+				drink = (char) ('A' + where - 1);
 				break;
 			case 4:
-				drink = 'A' + (drink + 1 - 'A') % doors;
+				drink = (char) ('A' + (drink + 1 - 'A') % doors);
 				break;
 		}
 
-		unsigned char first_guess;
+		char first_guess;
 		if (!(author_out >> first_guess)) {
 			wrong_answer("No first door guessed in round %d\n", r+1);
 		}
 		if (first_guess < 'A' || first_guess >= 'A' + doors) {
 			wrong_answer("First guess in round %d out of range: %c\n", r+1, first_guess);
 		} 
-		unsigned char hint;
+		char hint;
 		switch (strategy) {
 			case 0:
 				do {
-					hint = 'A' + R.myrnd() % doors;
+					hint = (char) ('A' + R.myrnd() % doors);
 				} while (hint == drink || hint == first_guess);
 				break;
 			case 1:
 				do {
-					hint = 'A' + R.myrnd() % doors;
+					hint = (char) ('A' + R.myrnd() % doors);
 				} while (hint == first_guess);
 				break;
 			case 2:
@@ -81,7 +81,7 @@ void check_case() {
 				}
 				else {
 					do {
-						hint = 'A' + R.myrnd() % doors;
+						hint = (char) ('A' + R.myrnd() % doors);
 					} while (hint == first_guess);
 				}
 				break;
@@ -89,7 +89,7 @@ void check_case() {
 		assert(hint != first_guess);
 		cout << hint << ' ' << (hint == drink) << endl;
 
-		unsigned char second_guess;
+		char second_guess;
 		if (!(author_out >> second_guess)) {
 			wrong_answer("No final door guessed in round %d\n", r+1);
 		}
