@@ -19,11 +19,15 @@ MAXM=1000000000
 samplegroup
 limits n=10
 sample 1
+sample 2
+sample 3
 
 
 group group1 1
 limits n=$MAXN3
 tc 1
+tc 2
+tc 3
 tc 1-medium-identical0 gen_identicalbottles n=$MAXN3 h=1
 tc 1-medium-identical1 gen_identicalbottles n=$MAXN3 h=$MAXM
 tc 1-medium-bitonic_uu gen_bitonic n=$MAXN3 first=up second=up
