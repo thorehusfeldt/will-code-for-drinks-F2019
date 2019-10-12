@@ -1,3 +1,6 @@
+''' Wrongly rounds to nearest integer (instead of down)
+'''
+from __future__ import division
 from sys import stdin, stdout
 from math import ceil
 
@@ -24,7 +27,7 @@ while i < len(words):
 if (line):
         typesettext.append(line)
 
-widgetpos = ceil(L * (H - 3) / (len(typesettext) - H))
+widgetpos = int(round( L * (H - 3) / (len(typesettext) - H)))
 
 print ('+' + '-' * W + '+-+')
 for i in range(L , L + H):

@@ -23,7 +23,7 @@ while i < len(words):
 if (line):
         typesettext.append(line)
 
-widgetpos = round(L * (H - 3) / (len(typesettext) - H))
+widgetpos = int (L * (H - 3) / (len(typesettext) - H))
 
 print ('+' + '-' * W + '+-+')
 for i in range(L , L + H):

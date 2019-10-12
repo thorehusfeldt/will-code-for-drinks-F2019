@@ -1,7 +1,8 @@
 from sys import stdin, stdout
 from fractions import Fraction
 
-# searches linearly for thumb position in 0..H-2 that satisfies constraint
+# searches linearly for thumb position in 0..H-2 that satisfies 
+# reasonable (but wrong) constraint
 
 W, H, L, N = map(int, stdin.readline().split())
 text = ' '.join([stdin.readline().strip() for _ in range(N)])

@@ -1,5 +1,6 @@
+from __future__ import division
 from sys import stdin, stdout
-from math import floor
+from math import ceil
 
 W, H, L, N = map(int, stdin.readline().split())
 text = ' '.join([stdin.readline().strip() for _ in range(N)])
@@ -24,7 +25,7 @@ while i < len(words):
 if (line):
         typesettext.append(line)
 
-widgetpos = floor(L * (H - 3) / (len(typesettext) - H))
+widgetpos = ceil( L * (H - 3) / (len(typesettext) - H))
 
 print ('+' + '-' * W + '+-+')
 for i in range(L , L + H):

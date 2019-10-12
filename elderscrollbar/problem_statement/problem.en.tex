@@ -9,7 +9,7 @@ A window displayed a \emph{viewport}: a part of a much longer text, adjusted to 
 The \emph{thumb}, shown as an X, represented the position of the viewport relative to the full (adjusted) text and allowed vertical nagivation by clicking and dragging.
 
 Alas, much of the knowledge of the Ancients has been lost in the Great Purge of the Second Iconoclast Uprising, which destroyed the last remaining implementations of the user interface layer of the Elder GUI. 
-As head programmer of the National Laboratory of Comparative User Interface Archeology it is your job to recreate the behaviour of the machines of yore as faithfully as possible.
+As head programmer of the National Laboratory of Interaction Design Archeology it is your job to recreate the behaviour of the machines of yore as faithfully as possible.
 
 Thanks to many years of studies, you have full understanding of the typographical aesthetics of the Elder Days:
 Lines were set flush left but ragged-right, and exactly one space separated words on the same line. 
@@ -19,8 +19,6 @@ If a word was too wide to fit the viewport, it was set on a line of its own and 
 
 The language of the Ancients was written in upper- and lowercase letters of the English alphabet without punctuation or hyphenation.
 The scroll bar on the right contained navigation widgets for ``up'' and ``down'' at the top and bottom. 
-The position of the thumb represented the relative position of the viewport in the adjusted text, but the precise details are lost.
-
 
 \section*{Input}
 
@@ -31,7 +29,28 @@ The viewport must show line $F$ of the adjusted input as the first line at the t
 The following $N$ lines for $1\leq N\leq 30,000$ contain the text (not adjusted), between 1 and 80~characters per line, including spaces; neither the first nor last character in each line are a space.
 No word in the language of the Ancients was more than 80~characters.
 
+
+\section*{Thumb position}
+You have discovered many ancient texts explaining the position $T\in\{0,\ldots, H-3\}$ of the thumb. 
+Alas, all are written in arcane languages that are long forgotten.
+One example reads like this:
+\begin{verbatim}
+SUBTRACT H FROM L GIVING DENOMINATOR.
+SUBTRACT 3 FROM H.
+MULTIPLY F BY H GIVING NUMERATOR.
+DIVIDE NUMERATOR BY DENOMINATOR GIVING T REMAINDER Left-Over.
+\end{verbatim}
+Another source claims that $T$ can be determined by an incantation that is almost poetic in its mystery, 
+\begin{verbatim}
+ H 3 - F *  L H - /
+\end{verbatim}
+and yet another obscure author writes
+\begin{verbatim}
+(defun thumb (lines height first) (/ (* (- height 3) first) (- lines height)))
+\end{verbatim}
+
 \section*{Output}
 
 Print the window as the Ancients would have seen it, built from minus (\verb!-!), plus (\verb!+!), pipe (\verb!|!), lower-case V (\verb!v!), caret (\verb!^!), and upper-case X (\verb!X!).
 See the sample output for the details.
+
