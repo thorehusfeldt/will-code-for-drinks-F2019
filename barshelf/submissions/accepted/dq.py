@@ -7,14 +7,15 @@ from sys import stdin
     In the conquer step, assemble contribution from trios across the middle
     from the indexed count of messy *pairs* in the opposite part;
     use the same trick as for text-book "counting inversions" divide-and-conquer
-    exercise, so the sorted sublists are passed up.
+    exercise, so the sorted sublists are passed up. Bit tricker here because
+    it requires binary search to find the number of elements in the other part
+    that contribute to a count.
 
     Only wart: to merge two sorted sublists in python, the fastest thing
     is to just sort them, spening linearithmic time in highly optimized C is better than
     spending linear time in Python.
 
-
-    So running time is O(n log^2 n), instead of the nicer but slower O(n log n)
+    Running time is O(n log^2 n)
     '''
 
 def slow_count(L):
