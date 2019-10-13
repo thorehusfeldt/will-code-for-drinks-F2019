@@ -15,13 +15,11 @@ MAXN4=5000
 MAXN5=200000
 MAXM=1000000000
 
-
 samplegroup
 limits n=10
 sample 1
 sample 2
 sample 3
-
 
 group group1 1
 limits n=$MAXN3
@@ -40,10 +38,10 @@ tc 1-medium-random2 gen_random n=$MAXN3
 tc 1-medium-random3 gen_random n=$MAXN3
 tc 1-medium-messy gen_messy n=$MAXN3
 tc 1-overflow gen_overflow $MAXN3
-#
-#
+
 group group2 1
 limits n=$MAXN4
+include_group group1   
 tc 2-large-identical0 gen_identicalbottles n=$MAXN4 h=1
 tc 2-large-identical1 gen_identicalbottles n=$MAXN4 h=$MAXM
 tc 2-large-bitonic_uu gen_bitonic n=$MAXN4 first=up second=up
@@ -57,9 +55,9 @@ tc 2-large-random3 gen_random n=$MAXN4
 tc 2-large-messy gen_messy n=$MAXN4
 tc 2-overflow gen_overflow $MAXN4
 
-
 group group3 1
 limits n=$MAXN5
+include_group group2   
 tc 3-huge-identical0 gen_identicalbottles n=$MAXN5 h=1
 tc 3-huge-identical1 gen_identicalbottles n=$MAXN5 h=$MAXM
 tc 3-huge-bitonic_uu gen_bitonic n=$MAXN5 first=up second=up
