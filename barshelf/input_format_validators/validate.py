@@ -10,7 +10,7 @@ MAX = 10**9
 line = stdin.readline()
 assert re.match(integer + "\n", line), "First line must be single int" % line
 n = int(line)
-assert 1 <= n <= 10**6, "n out of range" 
+assert 1 <= n <= 2 * 10**5, "n out of range" 
 
 line = stdin.readline().split()
 assert len(line) == n, "2nd line must contain n values"

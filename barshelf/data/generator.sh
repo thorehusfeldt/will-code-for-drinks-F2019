@@ -2,7 +2,7 @@
 
 . ../../testdata_tools/gen.sh
 
-use_solution using-lists.py
+use_solution sl.cpp 
 
 compile gen_identicalbottles.py
 compile gen_bitonic.py
@@ -10,9 +10,9 @@ compile gen_random.py
 compile gen_messy.py
 compile gen_overflow.cpp
 
-MAXN3=1000
-MAXN4=10000
-MAXN5=100000
+MAXN3=100
+MAXN4=5000
+MAXN5=200000
 MAXM=1000000000
 
 
