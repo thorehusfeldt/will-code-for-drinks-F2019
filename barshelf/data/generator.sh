@@ -10,6 +10,7 @@ compile gen_random.py
 compile gen_messy.py
 compile gen_overflow.cpp
 
+MAXTINY=20
 MAXN3=100
 MAXN4=5000
 MAXN5=200000
@@ -26,6 +27,15 @@ limits n=$MAXN3
 tc 1
 tc 2
 tc 3
+tc 1-tiny-bitonic_uu gen_bitonic n=$MAXTINY first=up second=up
+tc 1-tiny-bitonic_ud gen_bitonic n=$MAXTINY first=up second=down
+tc 1-tiny-bitonic_du gen_bitonic n=$MAXTINY first=down second=up
+tc 1-tiny-bitonic_dd gen_bitonic n=$MAXTINY first=down second=down
+tc 1-tiny-random0 gen_random n=$MAXTINY
+tc 1-tiny-random1 gen_random n=$MAXTINY
+tc 1-tiny-random2 gen_random n=$MAXTINY
+tc 1-tiny-random3 gen_random n=$MAXTINY
+tc 1-tiny-messy gen_messy n=$MAXTINY
 tc 1-medium-identical0 gen_identicalbottles n=$MAXN3 h=1
 tc 1-medium-identical1 gen_identicalbottles n=$MAXN3 h=$MAXM
 tc 1-medium-bitonic_uu gen_bitonic n=$MAXN3 first=up second=up
