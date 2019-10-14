@@ -1,0 +1,26 @@
+/* Fails to count trios that attain messiness with equality, such as 4, 2 ,1 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argv, char** args) 
+{ 
+	int n;
+	scanf("%d", &n);
+	int* arr = malloc(n * sizeof(int));
+	for (int i = 0; i < n; ++i)
+		scanf("%d", &arr[i]);
+	long long res = 0;
+	for (int i = 0; i < n - 2; ++i) {
+		for (int j = i + 1; j < n - 1; ++j) {
+			if (arr[i] > 2*arr[j]) {
+				for (int k = j + 1; k < n; ++k) 
+					res += (arr[j] > 2*arr[k]);
+			}
+		}
+	}
+
+	printf("%lld", res);
+	return 0; 
+} 
+
