@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from sys import stdin
 import sys
 import re
@@ -6,7 +6,7 @@ import re
 integer = "(0|[1-9][0-9]*)"
 
 line = stdin.readline()
-assert re.match(integer + ' ' + integer + ' '  + integer + ' ' + integer +'\n', line), 'first line: expected four integers'
+assert re.fullmatch(integer + ' ' + integer + ' '  + integer + ' ' + integer +'\n', line), 'first line: expected four integers'
 W, H, F, N = map(int, line.split())
 assert 3 <= W <= 200
 assert 3 <= H <= 200
@@ -15,7 +15,7 @@ assert 1 <= N <= 30000
 textlines = []
 for i in range(N):
     line = stdin.readline()
-    assert re.match('[a-zA-Z].*[a-zA-Z]\n', line) or re.match('[a-zA-Z]\n',line), i
+    assert re.fullmatch('[a-zA-Z][a-zA-Z ]*[a-zA-Z]\n', line) or re.fullmatch('[a-zA-Z]\n',line), i
     assert len(line) <= 81
     textlines.append(line.strip())
 text = ' '.join(textlines)
