@@ -1,14 +1,7 @@
 #include "validator.h"
 
 void run() {
-	int maxN = Arg("n");
-	int n = Int(1, maxN);
+	int n = Int(1, Arg("n"));
 	Endl();
-	for (int i = 0; i < n; i++) {
-		Int(1, 1000000000);
-		if (i < n-1) 
-			Space();
-	}
-	Endl();
-	Eof();
+	SpacedInts(n, 1, 1'000'000'000);
 }
