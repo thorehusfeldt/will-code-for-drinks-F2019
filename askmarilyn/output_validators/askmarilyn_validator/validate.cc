@@ -58,11 +58,11 @@ int check_case() {
 
 		char first_guess;
 		if (!(author_out >> first_guess)) {
-			author_message("You must begin by guessing a door.");
+			author_message("You must begin round %d by guessing a door.", r+1);
 			wrong_answer("No first door guessed in round %d\n", r+1);
 		}
 		if (first_guess < 'A' || first_guess >= 'A' + doors) {
-			author_message("Your guess must be a valid door name, such as A.");
+			author_message("Your guess must be a valid door name, such as A.", r+1);
 			wrong_answer("First guess in round %d out of range: %c\n", r+1, first_guess);
 		} 
 		char hint;
@@ -93,7 +93,7 @@ int check_case() {
 
 		char second_guess;
 		if (!(author_out >> second_guess)) {
-			author_message("You must give me a final guess.");
+			author_message("You must give me a final guess in round %d.",r+1);
 			wrong_answer("No final door guessed in round %d\n", r+1);
 		}
 		if (second_guess < 'A' || second_guess >= 'A' + doors) {
@@ -104,7 +104,7 @@ int check_case() {
 		cout << (second_guess == drink) << ' ' << drink << endl;
 	}
 	if  (ctr < 600) { // error prob. < .0001
-	 	author_message("Too bad. You got only %d drinks.\n", ctr);
+	 	author_message("%d drinks in 1000 rounds. Too bad.", ctr);
 		wrong_answer("Too few drinks\n");
 	}
 
@@ -119,11 +119,11 @@ int main(int argc, char **argv) {
 	/* Check for trailing output. */
 	string trash;
 	if (author_out >> trash) {
-	 	author_message("You won't stop talking!\n");
+	 	author_message("You won't stop talking!");
 		wrong_answer("Trailing output\n");
 	}
 
 	/* Yay! */
-	author_message("Congratulations! You got %d drinks.\n", res);
+	author_message("Congratulations! You got %d drinks.", res);
 	accept();
 }
