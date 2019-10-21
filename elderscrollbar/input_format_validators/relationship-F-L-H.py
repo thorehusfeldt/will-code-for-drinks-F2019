@@ -1,22 +1,17 @@
 #!/usr/bin/python3
+'''
+Checks that F <= L - H and  H < L, where F and H are given in the input
+and L is the length of the (aligned) text.
+'''
 from sys import stdin
 import sys
 import re
 
-integer = "(0|[1-9][0-9]*)"
-
-line = stdin.readline()
-assert re.fullmatch(integer + ' ' + integer + ' '  + integer + ' ' + integer +'\n', line), 'first line: expected four integers'
-W, H, F, N = map(int, line.split())
-assert 3 <= W <= 200
-assert 3 <= H <= 200
-assert 1 <= N <= 30000
+W, H, F, N = map(int, input().split()) 
 
 textlines = []
 for i in range(N):
     line = stdin.readline()
-    assert re.fullmatch('[a-zA-Z][a-zA-Z ]*[a-zA-Z]\n', line) or re.fullmatch('[a-zA-Z]\n',line), i
-    assert len(line) <= 81
     textlines.append(line.strip())
 text = ' '.join(textlines)
 words = text.split()
@@ -42,7 +37,4 @@ if (line):
 
 assert 0 <= F <= len(typesettext) - H
 assert H < len(typesettext)
-
-assert not stdin.readline()
-# Nothing to report
 sys.exit(42)

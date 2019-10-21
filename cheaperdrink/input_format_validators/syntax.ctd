@@ -1,0 +1,6 @@
+INT(1, 1000, n) NEWLINE
+REP (n)
+	REGEX("[0-9]{1,10}")
+	NEWLINE
+END
+EOF
