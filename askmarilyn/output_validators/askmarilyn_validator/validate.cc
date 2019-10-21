@@ -19,7 +19,7 @@ class miniPRG {
 	}
 };
 
-void check_case() {
+int check_case() {
 	string line;
 	/* Get test mode description from judge input file */
 	assert(getline(judge_in, line));
@@ -58,10 +58,12 @@ void check_case() {
 
 		char first_guess;
 		if (!(author_out >> first_guess)) {
-			wrong_answer("No first door guessed in round %d\n", r+1);
+			author_message("You must begin round %d by guessing a door", r+1);
+			wrong_answer("Round %d(1): No door guessed", r+1);
 		}
 		if (first_guess < 'A' || first_guess >= 'A' + doors) {
-			wrong_answer("First guess in round %d out of range: %c\n", r+1, first_guess);
+			author_message("Your guess must be a door, such as A");
+			wrong_answer("Round %d(1): Invalid door name: %c", r+1, first_guess);
 		} 
 		char hint;
 		switch (strategy) {
@@ -91,31 +93,37 @@ void check_case() {
 
 		char second_guess;
 		if (!(author_out >> second_guess)) {
-			wrong_answer("No final door guessed in round %d\n", r+1);
+			author_message("You must give me a final guess in round %d",r+1);
+			wrong_answer("Round %d(2): No door guessed", r+1);
 		}
 		if (second_guess < 'A' || second_guess >= 'A' + doors) {
-			wrong_answer("Final guess in round %d out of range: %c\n", r+1, second_guess);
+			author_message("Your guess must be a door, such as A");
+			wrong_answer("Round %d(2): Invalid door name: %c", r+1, second_guess);
 		} 
 		if (second_guess == drink) ++ctr;
 		cout << (second_guess == drink) << ' ' << drink << endl;
 	}
-	if  (ctr < 600) // error prob. < .0001
-		wrong_answer("Too few drinks\n");
+	if  (ctr < 600) { // error prob. < .0001
+	 	author_message("%d drinks in 1000 rounds. Too bad.", ctr);
+		wrong_answer("Too few drinks: %d", ctr);
+	}
 
-	return;
+	return ctr;
 }
 
 int main(int argc, char **argv) {
 	init_io(argc, argv);
 
-	check_case();
+	int res = check_case();
 
 	/* Check for trailing output. */
 	string trash;
 	if (author_out >> trash) {
-		wrong_answer("Trailing output\n");
+	 	author_message("You won't stop talking!");
+		wrong_answer("Trailing output");
 	}
 
 	/* Yay! */
+	author_message("Congratulations! You got %d drinks", res);
 	accept();
 }
