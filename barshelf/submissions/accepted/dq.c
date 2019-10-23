@@ -74,23 +74,15 @@ long count(int lo, int hi) {
 	   - L[i]: # indices j with j<i and H[j] >= 2*H[i] (Large guys to the Left) 
 	   - R[i]: # indices j with j>i and H[i] >= 2*H[j] (small guys to the Right)
 	   */
-	long ct;
+	long ct = 0;
 
-	if (hi == lo) {
-		ct = 0;
-		aux[lo] = H[lo];
-		L[lo] =  0;
-		R[lo] = 0;
-	}
-	else if  (hi == lo + 1) {
-		ct = 0;
-		L[lo] = R[hi] = 0;
+	if  (hi == lo + 1) {
 		L[hi] = (H[lo] >= 2*H[hi]);
 		R[lo] = (H[lo] >= 2*H[hi]);
 		aux[lo] = (H[lo] <  H[hi]) ? H[lo] : H[hi];
 		aux[hi] = (H[lo] >  H[hi]) ? H[lo] : H[hi];
 	}
-	else { 
+	else if (hi > lo +1) {
 		int mid = lo + (hi - lo)/2;
 		ct = count(lo, mid) + count(mid+1, hi) + conquer(lo, mid, hi);
 	}
@@ -106,7 +98,9 @@ int main(int argv, char** args)
 	aux = (long*) malloc(n * sizeof(long));
 	tmp = (long*) malloc(n * sizeof(long)); // prolly either tmp or aux can be avoided...
 	L = (long*) malloc(n * sizeof(long));
+	memset(L, 0, n);
 	R = (long*) malloc(n * sizeof(long));
+	memset(L, 0, n);
 	for (int i = 0; i < n; ++i) {
 		scanf("%ld", &H[i]);
 		aux[i] = H[i];
