@@ -1,17 +1,15 @@
-tailrec fun turn(s: String, i: Int, R: StringBuilder): String {
-    return if (i < 0) {
+tailrec fun turn(s: String, i: Int, R: StringBuilder): String =
+    if (i < 0) {
         val r = R.toString()
         if (s < r) s else r
     } else {
-        R.append(when(s[i]) {
-            '6' -> '9'
-            '9' -> '6'
-            in "018" -> s[i]
-            else -> return s
-        })
-        turn(s, i-1, R)
+        when (val si = s[i]) {
+            '6' -> turn(s, i-1, R.append('9'))
+            '9' -> turn(s, i-1, R.append('6'))
+            in "018" -> turn(s, i-1, R.append(si))
+            else -> s
+        }
     }
-}
 
 fun turn(s: String) = turn(s, s.length - 1, StringBuilder())
 
