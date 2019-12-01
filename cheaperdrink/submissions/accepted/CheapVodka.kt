@@ -1,14 +1,19 @@
-fun turn(s : String) : String {
-    val R = StringBuilder()
-    for (x in s.reversed()) R.append(when(x) {
-        '6' -> '9'
-        '9' -> '6'
-        in "018" -> x
-        else -> return s
-    })
-    val r = R.toString()
-    return if (s < r) s else r
+tailrec fun turn(s: String, i: Int, R: StringBuilder): String {
+    return if (i < 0) {
+        val r = R.toString()
+        if (s < r) s else r
+    } else {
+        R.append(when(s[i]) {
+            '6' -> '9'
+            '9' -> '6'
+            in "018" -> s[i]
+            else -> return s
+        })
+        turn(s, i-1, R)
+    }
 }
+
+fun turn(s: String) = turn(s, s.length - 1, StringBuilder())
 
 fun main(args: Array<String>) {
     readLine()
